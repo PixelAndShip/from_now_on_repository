@@ -1,0 +1,147 @@
+[gd_scene load_steps=24 format=3 uid="uid://caggjja3kclcr"]
+
+[ext_resource type="Texture2D" uid="uid://fkatviyejo06" path="res://art/spritesforgamefr/fertile_ground.png" id="1_a2gsg"]
+[ext_resource type="Script" path="res://scripts/growing_area.gd" id="1_josvg"]
+[ext_resource type="Texture2D" uid="uid://bgby4tcys8wvv" path="res://art/spritesforgamefr/potato1.png" id="2_u1pgn"]
+[ext_resource type="Texture2D" uid="uid://dpmgbtsxxat74" path="res://art/spritesforgamefr/potato2.png" id="3_gyyoc"]
+[ext_resource type="Texture2D" uid="uid://t51fk65llgnw" path="res://art/spritesforgamefr/potato3.png" id="4_r7mg0"]
+[ext_resource type="Texture2D" uid="uid://cb0naaj2530xy" path="res://art/spritesforgamefr/potato_final.png" id="5_f66qb"]
+[ext_resource type="Texture2D" uid="uid://bc4ddb6cke0tt" path="res://art/spritesforgamefr/wheat_stage1.png" id="6_sydp4"]
+[ext_resource type="Texture2D" uid="uid://b25lc5xawk8ec" path="res://art/spritesforgamefr/wheat_stage2.png" id="7_xp0id"]
+[ext_resource type="Texture2D" uid="uid://bfi7c7f5fyk7s" path="res://art/spritesforgamefr/wheat_stage3.png" id="8_lctvd"]
+[ext_resource type="Texture2D" uid="uid://k8i1uoxp7dk5" path="res://art/spritesforgamefr/fullygrownwheat.png" id="9_i1i6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkjbx"]
+atlas = ExtResource("1_a2gsg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0np8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkjbx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7qqv"]
+size = Vector2(12.25, 12.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1upeq"]
+atlas = ExtResource("1_a2gsg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ma3"]
+atlas = ExtResource("2_u1pgn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my4n0"]
+atlas = ExtResource("3_gyyoc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lody"]
+atlas = ExtResource("4_r7mg0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13qb4"]
+atlas = ExtResource("5_f66qb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxnd6"]
+atlas = ExtResource("6_sydp4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gydiw"]
+atlas = ExtResource("7_xp0id")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpcef"]
+atlas = ExtResource("8_lctvd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7kmu"]
+atlas = ExtResource("9_i1i6k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7gui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1upeq")
+}],
+"loop": true,
+"name": &"no_plant",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ma3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my4n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lody")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13qb4")
+}],
+"loop": true,
+"name": &"potato_growing_animation",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxnd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gydiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpcef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7kmu")
+}],
+"loop": true,
+"name": &"wheat_growing_animation",
+"speed": 0.0
+}]
+
+[node name="growing_area" type="StaticBody2D"]
+z_index = -2
+script = ExtResource("1_josvg")
+
+[node name="fertile_land" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0np8k")
+
+[node name="Button" type="Button" parent="fertile_land"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.125, 0.125)
+shape = SubResource("RectangleShape2D_b7qqv")
+
+[node name="plant" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a7gui")
+animation = &"no_plant"
+
+[node name="wheat_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="potato_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="pressed" from="fertile_land/Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="wheat_timer" to="." method="_on_wheat_timer_timeout"]
+[connection signal="timeout" from="potato_timer" to="." method="_on_potato_timer_timeout"]

@@ -1,0 +1,205 @@
+[gd_scene load_steps=26 format=3 uid="uid://c87ssnpe7lp52"]
+
+[ext_resource type="Script" path="res://scripts/shop_menu.gd" id="1_rjlr3"]
+[ext_resource type="FontFile" uid="uid://cqjpfxt4wvcfl" path="res://art/spritesforgamefr/Poco.ttf" id="2_1flk3"]
+[ext_resource type="Texture2D" uid="uid://tmvoqdoucuh6" path="res://art/spritesforgamefr/bible_texture.png" id="2_2fshl"]
+[ext_resource type="Script" path="res://scripts/price.gd" id="2_sc0wb"]
+[ext_resource type="Texture2D" uid="uid://di47820qdx5vc" path="res://art/spritesforgamefr/potion1.png" id="3_awn0y"]
+[ext_resource type="Texture2D" uid="uid://bv1q701fe8lr5" path="res://art/spritesforgamefr/potato_seed.png" id="3_idu6x"]
+[ext_resource type="Texture2D" uid="uid://bel8n6tromipp" path="res://art/spritesforgamefr/dumbbells_symbol.png" id="4_8lgjt"]
+[ext_resource type="Texture2D" uid="uid://fkatviyejo06" path="res://art/spritesforgamefr/fertile_ground.png" id="4_8yvko"]
+[ext_resource type="Texture2D" uid="uid://dk7d2j8bc4yuu" path="res://art/spritesforgamefr/coins.png" id="4_xvw2j"]
+[ext_resource type="Texture2D" uid="uid://cvbshnfsqgedc" path="res://art/spritesforgamefr/guitar_symbol_ree.png" id="5_x3kq0"]
+[ext_resource type="Texture2D" uid="uid://riwffb8jg86g" path="res://art/spritesforgamefr/buy_sword_sprite.png" id="6_wmem1"]
+[ext_resource type="Script" path="res://scripts/buy_button_color.gd" id="7_nofm7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tf36q"]
+font = ExtResource("2_1flk3")
+font_size = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpmia"]
+atlas = ExtResource("2_2fshl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87m11"]
+atlas = ExtResource("4_8lgjt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m4j3"]
+atlas = ExtResource("4_8yvko")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_120bj"]
+atlas = ExtResource("5_x3kq0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upuls"]
+atlas = ExtResource("3_idu6x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pehvg"]
+atlas = ExtResource("3_awn0y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0vxx"]
+atlas = ExtResource("6_wmem1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0oepm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpmia")
+}],
+"loop": true,
+"name": &"bible",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87m11")
+}],
+"loop": true,
+"name": &"dumbbell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m4j3")
+}],
+"loop": true,
+"name": &"field",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_120bj")
+}],
+"loop": true,
+"name": &"guitar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upuls")
+}],
+"loop": true,
+"name": &"potato_seed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pehvg")
+}],
+"loop": true,
+"name": &"potion1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0vxx")
+}],
+"loop": true,
+"name": &"sword",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xvtn"]
+atlas = ExtResource("4_xvw2j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tk7h5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xvtn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0y4br"]
+font = ExtResource("2_1flk3")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_uonrh"]
+font = ExtResource("2_1flk3")
+font_size = 30
+
+[node name="shop_menu" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_rjlr3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 29.0
+offset_top = -6.57143
+offset_right = 59.0
+offset_bottom = 32.4286
+scale = Vector2(0.5, 0.5)
+text = "r"
+label_settings = SubResource("LabelSettings_tf36q")
+horizontal_alignment = 2
+vertical_alignment = 1
+script = ExtResource("2_sc0wb")
+metadata/_edit_use_anchors_ = true
+
+[node name="shop_shown_item" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, 7.14286)
+scale = Vector2(0.758929, 0.763393)
+sprite_frames = SubResource("SpriteFrames_0oepm")
+animation = &"dumbbell"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(51, 7.42857)
+scale = Vector2(0.71875, 0.75)
+sprite_frames = SubResource("SpriteFrames_tk7h5")
+
+[node name="left" type="Button" parent="."]
+offset_top = 14.0
+offset_right = 8.0
+offset_bottom = 22.0
+
+[node name="Label" type="Label" parent="left"]
+layout_mode = 0
+offset_left = 1.42857
+offset_top = -4.28572
+offset_right = 41.4286
+offset_bottom = 34.7143
+scale = Vector2(0.3, 0.3)
+text = "<-"
+label_settings = SubResource("LabelSettings_0y4br")
+
+[node name="right" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 18.0
+offset_bottom = 22.0
+
+[node name="Label" type="Label" parent="right"]
+layout_mode = 0
+offset_left = 1.42857
+offset_top = -4.0
+offset_right = 41.4286
+offset_bottom = 35.0
+scale = Vector2(0.3, 0.3)
+text = "->"
+label_settings = SubResource("LabelSettings_uonrh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0.376471, 1, 0, 0.913725)
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 53.0
+offset_bottom = 22.0
+script = ExtResource("7_nofm7")
+
+[node name="buy_button" type="Button" parent="."]
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 53.0
+offset_bottom = 22.0
+
+[connection signal="pressed" from="left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="buy_button" to="." method="_on_buy_button_pressed"]

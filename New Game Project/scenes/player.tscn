@@ -1,0 +1,204 @@
+[gd_scene load_steps=28 format=3 uid="uid://comdd5uj5klgv"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_e8kxy"]
+[ext_resource type="Texture2D" uid="uid://c28h53v10v4c8" path="res://art/spritesforgamefr/swordedfr.png" id="2_k8b7v"]
+[ext_resource type="Texture2D" uid="uid://cy6y6x4t4ubro" path="res://art/spritesforgamefr/idl1fr.png" id="3_s1fu4"]
+[ext_resource type="Texture2D" uid="uid://05tef4vp5d4k" path="res://art/spritesforgamefr/idl2fr.png" id="4_3bk46"]
+[ext_resource type="PackedScene" uid="uid://dg3rnq7vx2bv5" path="res://scenes/inventory.tscn" id="5_dcifq"]
+[ext_resource type="Texture2D" uid="uid://6bu6wg2gusdv" path="res://art/spritesforgamefr/playing_guitar.png" id="5_ly20v"]
+[ext_resource type="Texture2D" uid="uid://b7xlcmfcs6fy6" path="res://art/spritesforgamefr/playing_guitar2frrrrrrrrrrr.png" id="6_vkoht"]
+[ext_resource type="Texture2D" uid="uid://cv1c5ntx83c0r" path="res://art/spritesforgamefr/reading_bible_fr.png" id="7_jmds3"]
+[ext_resource type="Texture2D" uid="uid://dxk2doywfyrko" path="res://art/spritesforgamefr/workout_1.png" id="8_hhgga"]
+[ext_resource type="PackedScene" uid="uid://shbpuo11d53t" path="res://scenes/shield.tscn" id="9_1o2eq"]
+[ext_resource type="Texture2D" uid="uid://ctnpr5m4v2mhu" path="res://art/spritesforgamefr/workout_2.png" id="9_dq5id"]
+[ext_resource type="Texture2D" uid="uid://f2xe0lp4a8g8" path="res://art/spritesforgamefr/bubble_musicfr.png" id="10_frv3s"]
+[ext_resource type="PackedScene" uid="uid://ck06v1ehk8tyy" path="res://scenes/flex.tscn" id="13_y42fu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ydk0"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_320on"]
+atlas = ExtResource("2_k8b7v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnxvu"]
+atlas = ExtResource("3_s1fu4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_konqb"]
+atlas = ExtResource("4_3bk46")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6y0b"]
+atlas = ExtResource("5_ly20v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhlvt"]
+atlas = ExtResource("6_vkoht")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oldit"]
+atlas = ExtResource("7_jmds3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p78y0"]
+atlas = ExtResource("9_dq5id")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2joh4"]
+atlas = ExtResource("8_hhgga")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_frpip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_320on")
+}],
+"loop": true,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnxvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_konqb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6y0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhlvt")
+}],
+"loop": true,
+"name": &"playing_music",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oldit")
+}],
+"loop": true,
+"name": &"reading",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p78y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2joh4")
+}],
+"loop": true,
+"name": &"working_out_anim",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aitf5"]
+radius = 6.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo2u7"]
+radius = 43.0465
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qx1qw"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngbk1"]
+radius = 9.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_e8kxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+shape = SubResource("CircleShape2D_2ydk0")
+debug_color = Color(0.909804, 0.184314, 0.584314, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_frpip")
+animation = &"working_out_anim"
+frame = 1
+frame_progress = 0.826165
+
+[node name="reload_speed" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_aitf5")
+
+[node name="can_take_damage_timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="inventory" parent="." instance=ExtResource("5_dcifq")]
+offset_left = -35.0
+offset_top = -59.0
+offset_right = -35.0
+offset_bottom = -59.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="shield" parent="." instance=ExtResource("9_1o2eq")]
+z_index = 1
+position = Vector2(0, -16)
+
+[node name="music_area" type="Area2D" parent="." groups=["music"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="music_area"]
+shape = SubResource("CircleShape2D_bo2u7")
+debug_color = Color(0, 0.6, 0.701961, 0.376471)
+
+[node name="bubble" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.215686)
+z_index = 2
+position = Vector2(-2.27374e-13, -1)
+scale = Vector2(6.875, 7.1875)
+texture = ExtResource("10_frv3s")
+
+[node name="flex" parent="." instance=ExtResource("13_y42fu")]
+z_index = 1
+position = Vector2(0, -5)
+
+[node name="right_flex" type="Area2D" parent="." groups=["right_flex"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_flex"]
+position = Vector2(22, -5)
+shape = SubResource("CircleShape2D_qx1qw")
+
+[node name="left_flex" type="Area2D" parent="." groups=["left_flex"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_flex"]
+position = Vector2(-22, -5)
+shape = SubResource("CircleShape2D_ngbk1")
+
+[node name="sword_size_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="potion_can_be_used_timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="enemies_on_taking_damage_timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="knights_on_taking_damage_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="reload_speed" to="." method="_on_reload_speed_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="can_take_damage_timer" to="." method="_on_can_take_damage_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="sword_size_timer" to="." method="_on_sword_size_timer_timeout"]
+[connection signal="timeout" from="potion_can_be_used_timer" to="." method="_on_potion_can_be_used_timer_timeout"]
+[connection signal="timeout" from="enemies_on_taking_damage_timer" to="." method="_on_enemies_on_taking_damage_timer_timeout"]
+[connection signal="timeout" from="knights_on_taking_damage_timer" to="." method="_on_knights_on_taking_damage_timer_timeout"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bft2yjrwvpvds"]
+
+[ext_resource type="Script" path="res://scripts/market.gd" id="1_a8e4x"]
+[ext_resource type="Texture2D" uid="uid://dvb38r1ro8n1y" path="res://art/spritesforgamefr/market.png" id="2_8utfw"]
+[ext_resource type="PackedScene" uid="uid://c87ssnpe7lp52" path="res://scenes/shop_menu.tscn" id="6_jyyie"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhp3a"]
+size = Vector2(12, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3pnc"]
+size = Vector2(12, 7)
+
+[node name="market" type="StaticBody2D"]
+z_index = -1
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1_a8e4x")
+
+[node name="Area2D" type="Area2D" parent="." groups=["market"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lhp3a")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8utfw")
+
+[node name="buy_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buy_area"]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_m3pnc")
+
+[node name="shop_menu" parent="." instance=ExtResource("6_jyyie")]
+position = Vector2(-12.8571, -22.1429)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="buy_area" to="." method="_on_buy_area_area_entered"]
+[connection signal="area_exited" from="buy_area" to="." method="_on_buy_area_area_exited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck06v1ehk8tyy"]
+
+[ext_resource type="Texture2D" uid="uid://b78ird0u30l0l" path="res://art/spritesforgamefr/bicep_flex_right.png" id="1_b7dt0"]
+[ext_resource type="Script" path="res://scripts/flex.gd" id="1_l1m3d"]
+[ext_resource type="Texture2D" uid="uid://mme8au3025mr" path="res://art/spritesforgamefr/bicep_flex_left.png" id="2_gvcih"]
+
+[node name="flex" type="Node2D"]
+script = ExtResource("1_l1m3d")
+
+[node name="right_flex" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.792157)
+position = Vector2(23, 0)
+texture = ExtResource("1_b7dt0")
+
+[node name="left_flex" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.792157)
+position = Vector2(-23, 0)
+texture = ExtResource("2_gvcih")

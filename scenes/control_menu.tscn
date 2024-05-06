@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://8dptaospg3w3"]
+
+[ext_resource type="Texture2D" uid="uid://bo8ir50br4yr2" path="res://art/spritesforgamefr/controls_bg.png" id="1_gf66f"]
+[ext_resource type="Script" path="res://scripts/control_menu.gd" id="2_emw3t"]
+[ext_resource type="FontFile" uid="uid://cqjpfxt4wvcfl" path="res://art/spritesforgamefr/Poco.ttf" id="3_nc4dt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fg81n"]
+font = ExtResource("3_nc4dt")
+
+[node name="control_menu" type="Sprite2D"]
+position = Vector2(578, 321.5)
+scale = Vector2(4.64844, 4.61806)
+texture = ExtResource("1_gf66f")
+script = ExtResource("2_emw3t")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -117.0
+offset_top = 33.0
+offset_right = -33.0
+offset_bottom = 64.0
+
+[node name="go_back_label" type="Label" parent="."]
+offset_left = -117.889
+offset_top = 31.7233
+offset_right = -34.8891
+offset_bottom = 63.7233
+text = "Go back!"
+label_settings = SubResource("LabelSettings_fg81n")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

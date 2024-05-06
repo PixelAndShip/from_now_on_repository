@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://j5lywbxejt55"]
+
+[ext_resource type="Texture2D" uid="uid://db7fpqdixbcli" path="res://art/spritesforgamefr/slash.png" id="1_ivvxs"]
+[ext_resource type="Script" path="res://scripts/slash.gd" id="2_njp40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guhd5"]
+size = Vector2(5.00244, 12)
+
+[node name="slash" type="Sprite2D"]
+rotation = -0.00245118
+texture = ExtResource("1_ivvxs")
+script = ExtResource("2_njp40")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="." groups=["enemy_damager"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1.49877, 0.00245091)
+shape = SubResource("RectangleShape2D_guhd5")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsges0sg5lqud"]
+
+[ext_resource type="Texture2D" uid="uid://di3ma4u7cix0p" path="res://art/spritesforgamefr/plant_round_symbol.png" id="1_pt5um"]
+[ext_resource type="Script" path="res://scripts/plants.gd" id="2_u8ao6"]
+
+[node name="plants" type="Sprite2D"]
+z_index = -1
+texture = ExtResource("1_pt5um")
+script = ExtResource("2_u8ao6")

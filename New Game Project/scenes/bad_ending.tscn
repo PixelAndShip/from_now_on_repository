@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciq7mhm5mk2jo"]
+
+[ext_resource type="Texture2D" uid="uid://dm2oq83w15dqv" path="res://art/spritesforgamefr/bad_ending.png" id="1_obosp"]
+[ext_resource type="FontFile" uid="uid://cqjpfxt4wvcfl" path="res://art/spritesforgamefr/Poco.ttf" id="2_6jfjq"]
+[ext_resource type="Script" path="res://scripts/bad_ending.gd" id="2_qaudg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tju81"]
+font = ExtResource("2_6jfjq")
+font_size = 30
+
+[node name="bad_ending" type="Sprite2D"]
+position = Vector2(579, 331.5)
+scale = Vector2(4.53906, 4.61806)
+texture = ExtResource("1_obosp")
+script = ExtResource("2_qaudg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.6076
+offset_top = 40.818
+offset_right = 262.392
+offset_bottom = 79.818
+scale = Vector2(0.5, 0.5)
+text = "...you're on your own."
+label_settings = SubResource("LabelSettings_tju81")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccbhmwb1ghgoh"]
+
+[ext_resource type="Script" path="res://scripts/wheat_seed_pack.gd" id="1_0tevm"]
+[ext_resource type="Texture2D" uid="uid://28mava15ka3b" path="res://art/spritesforgamefr/wheat_seed_bag.png" id="2_3t6o6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl3c7"]
+atlas = ExtResource("2_3t6o6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6w4am"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl3c7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmuic"]
+radius = 5.0
+
+[node name="wheat_seed_pack" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_0tevm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6w4am")
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 5.0
+offset_bottom = 6.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="." groups=["wheat_seed"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hmuic")
+
+[connection signal="button_down" from="AnimatedSprite2D/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="AnimatedSprite2D/Button" to="." method="_on_button_button_up"]

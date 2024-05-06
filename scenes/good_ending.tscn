@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtmwsm7iwmx1o"]
+
+[ext_resource type="Texture2D" uid="uid://cke2iwnqc6xl1" path="res://art/spritesforgamefr/good_ending.png" id="1_77s3b"]
+[ext_resource type="FontFile" uid="uid://cqjpfxt4wvcfl" path="res://art/spritesforgamefr/Poco.ttf" id="2_bc2bt"]
+[ext_resource type="Script" path="res://scripts/good_ending.gd" id="2_lv44p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfael"]
+font = ExtResource("2_bc2bt")
+font_size = 30
+
+[node name="good_ending" type="Sprite2D"]
+position = Vector2(574, 326.5)
+scale = Vector2(4.52344, 4.57639)
+texture = ExtResource("1_77s3b")
+script = ExtResource("2_lv44p")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 17.9067
+offset_top = 45.3414
+offset_right = 221.907
+offset_bottom = 84.3414
+scale = Vector2(0.5, 0.5)
+text = "...there is hope."
+label_settings = SubResource("LabelSettings_cfael")

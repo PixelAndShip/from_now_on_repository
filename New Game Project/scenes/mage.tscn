@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0jgiseoraqdj"]
+
+[ext_resource type="Script" path="res://scripts/mage.gd" id="1_loy62"]
+[ext_resource type="Texture2D" uid="uid://be8ao3f78da2h" path="res://art/spritesforgamefr/mage_attack1.png" id="2_1cdte"]
+[ext_resource type="Texture2D" uid="uid://fby8l5gpxo7s" path="res://art/spritesforgamefr/mage_attack2.png" id="3_oingu"]
+[ext_resource type="Texture2D" uid="uid://7f034afp5vmg" path="res://art/spritesforgamefr/default_mage.png" id="4_ellsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jukt6"]
+atlas = ExtResource("2_1cdte")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa75g"]
+atlas = ExtResource("3_oingu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb8b2"]
+atlas = ExtResource("4_ellsq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgh6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jukt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa75g")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb8b2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ccqu2"]
+radius = 4.0
+height = 14.0
+
+[node name="mage" type="Sprite2D"]
+z_index = -1
+script = ExtResource("1_loy62")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tgh6p")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ccqu2")
+
+[node name="mage_ready_to_attack" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="reloading" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="mage_ready_to_attack" to="." method="_on_mage_ready_to_attack_timeout"]
+[connection signal="timeout" from="reloading" to="." method="_on_reloading_timeout"]

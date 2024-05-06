@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4i47gape2uur"]
+
+[ext_resource type="Texture2D" uid="uid://ei8pls6vs3rj" path="res://art/spritesforgamefr/enemy_knight_fr.png" id="1_g268g"]
+[ext_resource type="Script" path="res://scripts/knight.gd" id="2_ij85h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wo73h"]
+radius = 16.0139
+
+[node name="knight" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_g268g")
+script = ExtResource("2_ij85h")
+
+[node name="hitbox" type="Area2D" parent="." groups=["enemy_knight"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_wo73h")
+
+[node name="Stunned" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="music_stun_timerr" type="Timer" parent="."]
+
+[node name="mogged_stun_timer_kn" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered" flags=18]
+[connection signal="timeout" from="Stunned" to="." method="_on_stunned_timeout" flags=18]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited" flags=18]
+[connection signal="timeout" from="music_stun_timerr" to="." method="_on_music_stun_timerr_timeout"]
+[connection signal="timeout" from="mogged_stun_timer_kn" to="." method="_on_mogged_stun_timer_kn_timeout"]

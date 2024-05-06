@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://shbpuo11d53t"]
+
+[ext_resource type="Texture2D" uid="uid://c7an48084fjyx" path="res://art/spritesforgamefr/dodge_shield.png" id="1_knhmp"]
+[ext_resource type="Script" path="res://scripts/shield.gd" id="2_868yr"]
+
+[node name="shield" type="Sprite2D"]
+z_index = -5
+texture = ExtResource("1_knhmp")
+script = ExtResource("2_868yr")

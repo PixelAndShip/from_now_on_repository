@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7c6jaj42pwfg"]
+
+[ext_resource type="Script" path="res://scripts/paused.gd" id="1_ub6x3"]
+[ext_resource type="Texture2D" uid="uid://cva288auq2cyj" path="res://art/spritesforgamefr/tutor.png" id="2_anl3f"]
+
+[node name="paused" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -191.0
+offset_right = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ub6x3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578.5, 515.76)
+scale = Vector2(1.00262, 1.01005)
+texture = ExtResource("2_anl3f")

@@ -1,0 +1,196 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr1kssmit4j07"]
+
+[ext_resource type="FontFile" uid="uid://cqjpfxt4wvcfl" path="res://art/spritesforgamefr/Poco.ttf" id="1_3wx2f"]
+[ext_resource type="Script" path="res://scripts/story.gd" id="1_8bx6x"]
+[ext_resource type="Texture2D" uid="uid://bksnesdu5w563" path="res://art/spritesforgamefr/bbbbg.jpg" id="2_i4spp"]
+[ext_resource type="Texture2D" uid="uid://duwcxevvfn3q" path="res://art/spritesforgamefr/attachment_2_1-1-ezgif.com-gif-to-jpg-converter-removebg-preview.png" id="4_en44i"]
+[ext_resource type="Texture2D" uid="uid://bnyc5xw64hcvk" path="res://art/spritesforgamefr/Crops_and_robbers-ezgif.com-gif-to-jpg-converter__1_-removebg-preview.png" id="5_8rdqx"]
+[ext_resource type="Texture2D" uid="uid://c82hsimn06wm" path="res://art/spritesforgamefr/attachment-2-1-ezgif.com-gif-to-jpg-converter-removebg-preview.png" id="6_xn6pq"]
+[ext_resource type="Script" path="res://scripts/AnimatedSprite2D_secrtet.gd" id="7_enma7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c44r6"]
+font = ExtResource("1_3wx2f")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bjet"]
+font = ExtResource("1_3wx2f")
+font_size = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pmk2"]
+atlas = ExtResource("4_en44i")
+region = Rect2(0, 0, 425, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3da0"]
+atlas = ExtResource("5_8rdqx")
+region = Rect2(0, 0, 235, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d4nr"]
+atlas = ExtResource("6_xn6pq")
+region = Rect2(0, 0, 393, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_et2hp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pmk2")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3da0")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d4nr")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[node name="story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_8bx6x")
+
+[node name="round1sotry" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "10 years have gone by and they still seek revenge? I thought I erased all my traces. I've left that life behind and I will not be resurrected in doom, for peace was the payment for my death. Let me pay in kind to the \"straw hats\"!"
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round1sotry"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round2sotry" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "It seems their strength has increased since I was last with them. What wretched wisdoms have they been learning? I found my own way yet still I have forsake theirs. I must live, their ways must be defeated!"
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round2sotry"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round3sotry" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "The fools! Why have they come? For what do we spill our blood? Is htis the harvest of my sowed? I never knew peace, so i ripped it from my enemies. I am sorry, I never wanted vengence, only justice! Perhaps justice has come."
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round3sotry"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round4sotryEVIL" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "I will have no more of this! If they seek repayment, I will pay tenfold. Let them come, their justice was taught by me and will be ended by me. If they seek my peace, I will end theirs."
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round4sotryEVIL"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round4sotryGOOD" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "I must endure. I can not change their ways for I myself have grown them. Let it be harvested and make way for seeds of peace to be sown. I seek redemption of my ways, let my past days be burried. I seek no more, I have found the sought."
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round4sotryGOOD"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round5sotryGOOD" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "Time only goes on. I will carry their past till my end. Build I must, for I have destroyed, grow I must, for I have burned. I am tired and guilty, I am sorry for what I did to you. Please drop your weapons for I have no enemies and seek none."
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round5sotryGOOD"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="round5sotryEVIL" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 343.0
+offset_bottom = 351.0
+text = "I will have my peace no matter what. Their foolishness has brought them here, so to Hell I will guide them fair. I left my past behind, so if it is sought back let it be found. Let them know that I will have no enemies!"
+label_settings = SubResource("LabelSettings_c44r6")
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="round5sotryEVIL"]
+z_index = -1
+position = Vector2(160, 217.5)
+scale = Vector2(0.196875, 0.426852)
+texture = ExtResource("2_i4spp")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 189.0
+offset_top = 447.0
+offset_right = 339.0
+offset_bottom = 478.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 151.0
+offset_bottom = 26.0
+text = "It has been read"
+label_settings = SubResource("LabelSettings_5bjet")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(190, 186.667)
+sprite_frames = SubResource("SpriteFrames_et2hp")
+animation = &"1"
+script = ExtResource("7_enma7")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
